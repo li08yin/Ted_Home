@@ -3,6 +3,31 @@ var helloWorldApp = angular.module('helloWorldApp', []);
 helloWorldApp.controller('myController', function ($scope) {
 	$scope.userName = "I'm Ted";
 
+	$scope.tab = 1;
+
+	$scope.filtText = "";
+
+	$scope.select = function(setTab) {
+		$scope.tab = setTab;
+		switch(setTab) {
+			case 2: $scope.filtText = "appetizer"; break;
+			case 3: $scope.filtText = "mains"; break;
+			case 4: $scope.filtText = "dessert"; break;
+			default: $scope.filtText = ""; break;
+		}
+	};
+
+	$scope.isSelected = function(checkTab) {
+		return $scope.tab === checkTab;
+	};
+
+	var myVisitedCountry = [
+		{name: "China", time: "1999-10-10"},
+		{name: "USA", time: "2009-10-10"}
+	];
+
+	this.myVisitedCountry = myVisitedCountry;
+
     $scope.dishes = [
 	{
 	   name:'Uthapizza',
