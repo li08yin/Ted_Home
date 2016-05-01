@@ -1,0 +1,28 @@
+{
+  "name": "TedMenu",
+  "version": "1.0.0",
+  "description": "Menus for Ted",
+  "main": "menusIndex.html",
+  "moduleType": [],
+  "keywords": [
+    "Ted",
+    "Menus"
+  ],
+  "authors": [
+    "Lyin"
+  ],
+  "license": "Syr",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "angular": "~1.4.7"
+  }
+}
