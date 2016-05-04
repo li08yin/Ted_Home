@@ -1,6 +1,6 @@
-var helloWorldApp = angular.module('helloWorldApp', []);
-
-helloWorldApp.controller('myController', function ($scope) {
+'use strict';
+angular.module('helloWorldApp', [])
+	.controller('myController', function ($scope) {
 	$scope.userName = "I'm Ted";
 
 	$scope.tab = 1;
