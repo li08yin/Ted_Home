@@ -91,7 +91,8 @@ gulp.task('browser-sync', function () {
         server: {
             baseDir: "dist"
         },
-        startPath: "menu.html"
+        startPath: "menu.html",
+        browser: ['google chrome']
     });
 
     // Watch any files in dist/, reload on change
