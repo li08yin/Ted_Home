@@ -9,14 +9,17 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: Menu</title>
         <!-- Bootstrap -->
+    <!-- build:css styles/main.css -->
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!--<link href="styles/bootstrap-social.css" rel="stylesheet">-->
     <link href="css/menuStyle.css" rel="stylesheet">
+    <!-- endbuild -->
 </head>
 
 <body>
+    <h1>Hello World Works by LI</h1>
     <div ng-controller="myController as myCtrl">
         <ul>
             <li ng-repeat="elem in myCtrl.myVisitedCountry">
@@ -73,11 +76,13 @@
         </div>
     </div>
 
+    <!-- build:js scripts/main.js -->
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./bower_components/angular/angular.min.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="./js/myScripts.js"></script>
+    <!-- endbuild -->
 
 </body>
 </html>

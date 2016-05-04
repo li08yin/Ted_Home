@@ -1,6 +1,6 @@
 var helloWorldApp = angular.module('helloWorldApp', []);
 
-helloWorldApp.controller('myController', function ($scope) {
+helloWorldApp.controller('myController', ['$scope', function ($scope) {
 	$scope.userName = "I'm Ted";
 
 	$scope.tab = 1;
@@ -29,6 +29,14 @@ helloWorldApp.controller('myController', function ($scope) {
 	this.myVisitedCountry = myVisitedCountry;
 
     $scope.dishes = [
+	{
+		name:'Uthapizza3',
+		image: 'img/uthapizza.png',
+		category: 'mains', label:'Hot',
+		price:'5.99',
+		description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
+		comment: ''
+	},
 	{
 	   name:'Uthapizza',
 	   image: 'img/uthapizza.png',
@@ -65,4 +73,4 @@ helloWorldApp.controller('myController', function ($scope) {
 	   description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
 	   comment: ''
 	}];
-}); 
+}]);
