@@ -19,21 +19,15 @@
 </head>
 
 <body>
-    <h1>Hello World Works</h1>
-    <div ng-controller="myController as myCtrl">
-        <ul>
-            <li ng-repeat="elem in myCtrl.myVisitedCountry">
-                Name: {{ elem.name }}, Time: {{ elem.time }}
-            </li>
-        </ul>
-    </div>
-
-    <div class="container" ng-controller="myController">
+    <div class="container" ng-controller="MenuController">
         MyName: [ {{userName}} ]
         NewName: <input type="text" ng-model="userName"/>
 
         <div class="row row-content">
             <div class="col-xs-12">
+                <button ng-click="toggleDetails()" ng-class="btnStyle" style="width : 130px" type="button">
+                    {{showDetails ? 'Hide Details':'Show Details'}}
+                </button>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" ng-class="{active:isSelected(1)}">
                         <a ng-click="select(1)" aria-controls="all menu" role="tab">The Menu</a>
@@ -63,7 +57,7 @@
                                     <span class="label label-danger">{{dish.label}}</span>
                                     <span class="badge">{{dish.price | currency}}</span>
                                 </h2>
-                                <p>{{dish.description}}</p>
+                                <p ng-show="showDetails">{{dish.description}}</p>
                                 <p>Comment: {{dish.comment}}</p>
                                 <p>Type your comment:
                                     <input type="text" ng-model="dish.comment"></p>

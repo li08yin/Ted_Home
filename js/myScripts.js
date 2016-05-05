@@ -1,7 +1,20 @@
 var helloWorldApp = angular.module('helloWorldApp', []);
 
-helloWorldApp.controller('myController', ['$scope', function ($scope) {
+helloWorldApp.controller('MenuController', ['$scope', function ($scope) {
 	$scope.userName = "I'm Ted";
+
+	$scope.showDetails = true;
+
+	$scope.btnStyle = "btn pull-right";
+
+	$scope.$watch('showDetails', function(newValue, oldValue){
+		if (newValue) $scope.btnStyle = "btn pull-right btn-warning";
+		else $scope.btnStyle = "btn pull-right btn-success";
+	});
+	
+	$scope.toggleDetails = function() {
+		$scope.showDetails = !$scope.showDetails;
+	};
 
 	$scope.tab = 1;
 
@@ -20,13 +33,6 @@ helloWorldApp.controller('myController', ['$scope', function ($scope) {
 	$scope.isSelected = function(checkTab) {
 		return $scope.tab === checkTab;
 	};
-
-	var myVisitedCountry = [
-		{name: "China", time: "1999-10-10"},
-		{name: "USA", time: "2009-10-10"}
-	];
-
-	this.myVisitedCountry = myVisitedCountry;
 
     $scope.dishes = [
 	{
