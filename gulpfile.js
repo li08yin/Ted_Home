@@ -17,6 +17,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     del = require('del');
 
+var flatmap = require('gulp-flatmap');
+
 gulp.task('jshint', function() {
     return gulp.src('js/**/*.js')
         .pipe(jshint())
@@ -34,12 +36,15 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('usemin',['jshint'], function () {
-    return gulp.src('menu.html')
-        .pipe(usemin({
-            css:[minifycss(),rev()],
-            js: [uglify(),rev()]
-        }))
-        .pipe(gulp.dest('dist/'));
+    return gulp.src('*.html')
+        .pipe(flatmap(function (stream, file) {
+            return stream
+                .pipe(usemin({
+                    css:[minifycss(), rev()],
+                    js: [uglify(), rev()]
+                }))
+                .pipe(gulp.dest('dist/'));
+    }))
 });
 
 // Images

@@ -1,6 +1,7 @@
 var helloWorldApp = angular.module('helloWorldApp', []);
 
 helloWorldApp.controller('MenuController', ['$scope', function ($scope) {
+
 	$scope.userName = "I'm Ted";
 
 	$scope.showDetails = true;
@@ -91,7 +92,7 @@ helloWorldApp.controller('ContactController', ['$scope', function($scope) {
 helloWorldApp.controller('FeedbackController', ['$scope', function($scope) {
 	$scope.sendFeedback = function() {
 		console.log($scope.feedback);
-		if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel) {
+		if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel) {
 			$scope.invalidChannelSelection = true;
 			console.log('incorrect');
 		}
