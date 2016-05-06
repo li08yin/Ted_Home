@@ -11,7 +11,7 @@ helloWorldApp.controller('MenuController', ['$scope', function ($scope) {
 		if (newValue) $scope.btnStyle = "btn pull-right btn-warning";
 		else $scope.btnStyle = "btn pull-right btn-success";
 	});
-	
+
 	$scope.toggleDetails = function() {
 		$scope.showDetails = !$scope.showDetails;
 	};
@@ -79,4 +79,30 @@ helloWorldApp.controller('MenuController', ['$scope', function ($scope) {
 	   description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
 	   comment: ''
 	}];
+}]);
+
+helloWorldApp.controller('ContactController', ['$scope', function($scope) {
+	$scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
+	var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
+	$scope.channels = channels;
+	$scope.invalidChannelSelection = false;
+}]);
+
+helloWorldApp.controller('FeedbackController', ['$scope', function($scope) {
+	$scope.sendFeedback = function() {
+		console.log($scope.feedback);
+		if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel) {
+			$scope.invalidChannelSelection = true;
+			console.log('incorrect');
+		}
+		else {
+			$scope.invalidChannelSelection = false;
+			$scope.feedback = {mychannel:"", firstName:"", lastName:"",
+				agree:false, email:"" };
+			$scope.feedback.mychannel="";
+
+			$scope.feedbackForm.$setPristine();
+			console.log($scope.feedback);
+		}
+	};
 }]);
