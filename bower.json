@@ -2,7 +2,7 @@
   "name": "TedMenu",
   "version": "1.0.0",
   "description": "Menus for Ted",
-  "main": "menusIndex.html",
+  "main": "index.html",
   "moduleType": [],
   "keywords": [
     "Ted",
@@ -24,6 +24,8 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "angular": "~1.4.7",
+    "angular-route": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
     "bootstrap-social": "~5.0.0"
   }
 }

@@ -1,6 +1,3 @@
-/**
- * Created by lyin08 on 5/4/16.
- */
 var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -15,12 +12,11 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
-    del = require('del');
-
-var flatmap = require('gulp-flatmap');
+    del = require('del'),
+    ngannotate = require('gulp-ng-annotate');
 
 gulp.task('jshint', function() {
-    return gulp.src('js/**/*.js')
+    return gulp.src('app/js/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
 });
@@ -36,23 +32,20 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('usemin',['jshint'], function () {
-    return gulp.src('*.html')
-        .pipe(flatmap(function (stream, file) {
-            return stream
-                .pipe(usemin({
-                    css:[minifycss(), rev()],
-                    js: [uglify(), rev()]
-                }))
-                .pipe(gulp.dest('dist/'));
-    }))
+    return gulp.src('./app/**/*.html')
+        .pipe(usemin({
+            css:[minifycss(),rev()],
+            js: [ngannotate(),uglify(),rev()]
+        }))
+        .pipe(gulp.dest('dist/'));
 });
 
 // Images
 gulp.task('imagemin', function() {
-    return del(['dist/img']), gulp.src('img/**/*')
+    return del(['dist/img']), gulp.src('app/img/**/*')
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('dist/img'))
-        .pipe(notify({ message: 'Images task complete' }));
+        .pipe(gulp.dest('dist/img'));
+        //.pipe(notify({ message: 'Images task complete' }));
 });
 
 gulp.task('copyfonts', ['clean'], function() {
@@ -66,18 +59,18 @@ gulp.task('copyfonts', ['clean'], function() {
 gulp.task('watch', ['default'], function() {
     gulp.run('browser-sync');
     // Watch .js files
-    gulp.watch('{js/**/*.js,css/**/*.css,./*.html}', ['usemin']);
+    gulp.watch('{app/js/**/*.js,app/css/**/*.css,app/views/*.html}', ['usemin']);
     // Watch image files
-    gulp.watch('img/**/*', ['imagemin']);
+    gulp.watch('app/img/**/*', ['imagemin']);
 
 });
 
 gulp.task('browser-sync', function () {
     var files = [
-        '**/*.html',
-        'css/**/*.css',
-        'img/**/*.png',
-        'js/**/*.js',
+        'app/**/*.html',
+        'app/css/**/*.css',
+        'app/img/**/*.png',
+        'app/js/**/*.js',
         'dist/**/*'
     ];
 
@@ -94,9 +87,9 @@ gulp.task('browser-sync', function () {
 
     browserSync.init(files, {
         server: {
-            baseDir: "dist"
+            baseDir: "dist",
+            index: "index.html"
         },
-        startPath: "menu.html",
         browser: ['google chrome']
     });
 

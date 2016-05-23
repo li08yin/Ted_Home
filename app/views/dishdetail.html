@@ -1,35 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="helloWorldApp">
-
-<!--<head>-->
-    <!--<meta charset="utf-8">-->
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <!--&lt;!&ndash; The above 3 meta tags *must* come first in the head; any other head-->
-         <!--content must come *after* these tags &ndash;&gt;-->
-    <!--<title>Ristorante Con Fusion: Menu</title>-->
-    <!--&lt;!&ndash; Bootstrap &ndash;&gt;-->
-    <!--&lt;!&ndash; build:css styles/main.css &ndash;&gt;-->
-    <!--<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <!--<link href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">-->
-    <!--<link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
-    <!--<link href="./bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">-->
-    <!--<link href="css/mystyles.css" rel="stylesheet">-->
-    <!--&lt;!&ndash; endbuild &ndash;&gt;-->
-
-    <!--&lt;!&ndash; HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries &ndash;&gt;-->
-    <!--&lt;!&ndash; WARNING: Respond.js doesn't work if you view the page via file:// &ndash;&gt;-->
-    <!--&lt;!&ndash;[if lt IE 9]>-->
-    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>-->
-    <!--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
-    <!--<![endif]&ndash;&gt;-->
-<!--</head>-->
-
-<body>
-
 <div class="container">
     <div class="row row-content" ng-controller="DishDetailController">
         <div class="col-xs-12">
+            <button class="btn btn-xs btn-primary pull-right"
+                    type="button" ui-sref="app.menu">
+                Back to Menu
+            </button>
             <div class="media">
                 <div class="media-left media-middle">
                     <a href="#">
@@ -136,14 +111,3 @@
         </div>
     </div>
 </div>
-
-<!--&lt;!&ndash; build:js scripts/main.js &ndash;&gt;-->
-<!--<script src="./bower_components/angular/angular.min.js"></script>-->
-<!--<script src="js/dishCommCtrl.js"></script>-->
-<!--<script src="js/controllers.js"></script>-->
-<!--<script src="js/services.js"></script>-->
-<!--&lt;!&ndash; endbuild &ndash;&gt;-->
-
-</body>
-
-</html>

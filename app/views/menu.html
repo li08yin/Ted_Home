@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="helloWorldApp">
-<!--<head>-->
-    <!--<meta charset="utf-8">-->
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <!--&lt;!&ndash; The above 3 meta tags *must* come first in the head; any other head-->
-         <!--content must come *after* these tags &ndash;&gt;-->
-    <!--<title>Ristorante Con Fusion: Menu</title>-->
-        <!--&lt;!&ndash; Bootstrap &ndash;&gt;-->
-    <!--&lt;!&ndash; build:css styles/main.css &ndash;&gt;-->
-    <!--<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-    <!--<link href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">-->
-    <!--<link href="./bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
-    <!--&lt;!&ndash;<link href="styles/bootstrap-social.css" rel="stylesheet">&ndash;&gt;-->
-    <!--<link href="css/menuStyle.css" rel="stylesheet">-->
-    <!--&lt;!&ndash; endbuild &ndash;&gt;-->
-<!--</head>-->
-
-<body>
-    <div class="container" ng-controller="MenuController">
+ <div class="container" ng-controller="MenuController">
         MyName: [ {{userName}} ]
         NewName: <input type="text" ng-model="userName"/>
 
@@ -46,7 +26,7 @@
                     <ul class="media-list tab-pane fade in active">
                         <li class="media" ng-repeat="dish in dishes | filter:filtText">
                             <div class="media-left media-middle">
-                                <a href="#">
+                                <a ui-sref="app.dishdetails({id: dish._id})">
                                     <img class="media-object img-thumbnail"
                                          ng-src={{dish.image}} alt="Uthappizza">
                                 </a>
@@ -68,15 +48,3 @@
             </div>
         </div>
     </div>
-
-    <!-- build:js scripts/main.js -->
-    <!--<script src="./bower_components/jquery/dist/jquery.min.js"></script>-->
-    <!--<script src="./bower_components/angular/angular.min.js"></script>-->
-    <!--<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
-    <!--<script type="text/javascript" src="./js/myScripts.js"></script>-->
-    <!--<script src="js/controllers.js"></script>-->
-    <!--<script src="js/services.js"></script>-->
-    <!-- endbuild -->
-
-</body>
-</html>

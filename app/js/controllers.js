@@ -1,9 +1,5 @@
-/**
- * Created by lyin08 on 5/8/16.
- */
-var helloWorldApp = angular.module('helloWorldApp');
-
-helloWorldApp.controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+angular.module('helloWorldApp')
+.controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
     $scope.userName = "I'm Ted";
 
@@ -39,16 +35,16 @@ helloWorldApp.controller('MenuController', ['$scope', 'menuFactory', function($s
     };
 
     $scope.dishes= menuFactory.getDishes();
-}]);
+}])
 
-helloWorldApp.controller('ContactController', ['$scope', function($scope) {
+.controller('ContactController', ['$scope', function($scope) {
     $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
     var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
     $scope.channels = channels;
     $scope.invalidChannelSelection = false;
-}]);
+}])
 
-helloWorldApp.controller('FeedbackController', ['$scope', function($scope) {
+.controller('FeedbackController', ['$scope', function($scope) {
     $scope.sendFeedback = function() {
         console.log($scope.feedback);
         if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel) {

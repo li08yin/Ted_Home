@@ -2,11 +2,11 @@
  * Created by lyin08 on 5/7/16.
  */
 
-var helloWorldApp = angular.module('helloWorldApp', []);
-
-helloWorldApp.controller('DishDetailController', ['$scope', 'menuFactory', function($scope, menuFactory) {
-    $scope.dish= menuFactory.getDish(3);
-}])
+angular.module('helloWorldApp')
+    .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+        var dish= menuFactory.getDish(parseInt($stateParams.id,10));
+        $scope.dish = dish;
+    }])
 
 .controller('DishCommentController', ['$scope', function($scope) {
     //Step 1: Create a JavaScript object to hold the comment from the form

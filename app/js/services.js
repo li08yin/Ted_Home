@@ -1,12 +1,10 @@
-/**
- * Created by lyin08 on 5/8/16.
- */
 'use strict';
 
 angular.module('helloWorldApp')
     .service('menuFactory', function() {
         var dishes=[
             {
+                _id: 0,
                 name:'Uthapizza',
                 image: 'img/uthapizza.png',
                 category: 'mains',
@@ -46,6 +44,7 @@ angular.module('helloWorldApp')
                     }                                                          ]
             },
             {
+                _id: 1,
                 name:'Zucchipakoda',
                 image: 'img/zucchipakoda.png',
                 category: 'appetizer',
@@ -85,6 +84,7 @@ angular.module('helloWorldApp')
                     }                                                          ]
             },
             {
+                _id: 2,
                 name:'Vadonut',
                 image: 'img/vadonut.png',
                 category: 'appetizer',
@@ -125,6 +125,7 @@ angular.module('helloWorldApp')
                 ]
             },
             {
+                _id: 3,
                 name:'ElaiCheese Cake',
                 image: 'img/elaicheesecake.png',
                 category: 'dessert',
